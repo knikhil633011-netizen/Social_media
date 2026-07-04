@@ -26,13 +26,6 @@ export async function POST(request, { params }) {
       );
     }
 
-    if (user.username !== 'nikhil') {
-      return NextResponse.json(
-        { success: false, error: 'Access denied. Comments are restricted to the administrator.' },
-        { status: 403 }
-      );
-    }
-    
     const ip = getClientIp(request);
     
     // Rate limit commenting

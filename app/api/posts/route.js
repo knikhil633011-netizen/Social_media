@@ -46,7 +46,15 @@ export async function POST(request) {
       );
     }
 
-    if (user.username !== 'nikhil') {
+    const body = await request.json();
+    const content = body.content;
+    const groupId = body.group_id || null;
+    const attachment = body.attachment || null;
+    const vibe = body.vibe || 'default';
+    const isSecretDrop = !!body.is_secret_drop;
+    const downloadLimit = Number(body.download_limit) || 0;
+
+    if (user.username !== 'nikhil' && !groupId) {
       return NextResponse.json(
         { success: false, error: 'Access denied. Only the administrator can post global whispers.' },
         { status: 403 }
@@ -66,14 +74,6 @@ export async function POST(request) {
       );
     }
 
-    const body = await request.json();
-    const content = body.content;
-    const groupId = body.group_id || null;
-    const attachment = body.attachment || null;
-    const vibe = body.vibe || 'default';
-    const isSecretDrop = !!body.is_secret_drop;
-    const downloadLimit = Number(body.download_limit) || 0;
-    
     // Calculate expiration on the server to prevent clock drift and local timezone issues
     const expireOption = body.expire_option || 'never';
     let expiresAt = null;

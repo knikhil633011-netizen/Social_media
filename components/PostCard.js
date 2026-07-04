@@ -294,25 +294,56 @@ export default function PostCard({ post, onReactUpdate, currentUser }) {
 
   const handleDeletePost = async () => {
     if (window.confirm("Are you sure you want to delete this whisper?")) {
+      if (post.is_local || String(post.id).startsWith('local-post-') || String(post.id).startsWith('imported-')) {
+        try {
+          const localPosts = JSON.parse(localStorage.getItem('local_posts') || '[]');
+          const updated = localPosts.filter(p => p.id !== post.id);
+          localStorage.setItem('local_posts', JSON.stringify(updated));
+          setIsDeleted(true);
+        } catch (e) {
+          console.error("Failed to delete local post:", e);
+        }
+        return;
+      }
+
       try {
         const res = await fetch(`/api/posts/${post.id}`, { method: 'DELETE' });
         const data = await res.json();
         if (res.ok && data.success) {
           setIsDeleted(true);
+        } else {
+          alert(data.error || 'Failed to delete whisper from server.');
         }
       } catch (err) {
         console.error("Failed to delete post:", err);
+        alert('Network error. Failed to delete whisper.');
       }
     }
   };
 
   const handleDeleteComment = async (commentId) => {
     if (window.confirm("Are you sure you want to delete this reply?")) {
+      if (String(commentId).startsWith('local-comment-')) {
+        try {
+          const localCommentsObj = JSON.parse(localStorage.getItem('local_comments') || '{}');
+          if (localCommentsObj[post.id]) {
+            localCommentsObj[post.id] = localCommentsObj[post.id].filter(c => c.id !== commentId);
+            localStorage.setItem('local_comments', JSON.stringify(localCommentsObj));
+          }
+          setComments(prev => prev.filter(c => c.id !== commentId));
+        } catch (e) {
+          console.error("Failed to delete local comment:", e);
+        }
+        return;
+      }
+
       try {
         const res = await fetch(`/api/comments/${commentId}`, { method: 'DELETE' });
         const data = await res.json();
         if (res.ok && data.success) {
           setComments(prev => prev.filter(c => c.id !== commentId));
+        } else {
+          alert(data.error || 'Failed to delete reply from server.');
         }
       } catch (err) {
         console.error("Failed to delete comment:", err);
