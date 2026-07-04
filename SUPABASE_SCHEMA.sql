@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS groups (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT,
+  created_by UUID REFERENCES users(id) ON DELETE SET NULL,
   created_at TIMESTAMPTZ DEFAULT now() NOT NULL
 );
 
