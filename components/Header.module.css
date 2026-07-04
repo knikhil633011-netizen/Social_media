@@ -116,12 +116,18 @@
   transform: translate(1px, 1px) !important;
 }
 
+@media (max-width: 650px) {
+  .btnText {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .header {
     padding: 10px 12px;
   }
   .branding {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
   .logoRoom {
     font-size: 0.9rem;
@@ -129,11 +135,12 @@
     margin-left: 3px;
   }
   .navControls {
-    gap: 6px;
+    gap: 5px;
   }
   .navBtn {
-    padding: 4px 8px;
+    padding: 4px 6.5px;
     font-size: 0.75rem;
+    border-radius: 12px;
   }
   .userBadge {
     display: none; /* Hide private user badge on mobile to prevent navbar button wrapping */

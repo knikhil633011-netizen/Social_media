@@ -35,7 +35,15 @@ export default function Header({ currentUser, currentView, onViewChange, onLogou
           onClick={toggleMute}
           title="Toggle ambient generative soundscape"
         >
-          {isMuted ? '🔇 sound: off' : `🔊 sound: ${vibe}`}
+          {isMuted ? (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+              🔇<span className={styles.btnText}>sound: off</span>
+            </span>
+          ) : (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+              🔊<span className={styles.btnText}>sound: {vibe}</span>
+            </span>
+          )}
         </button>
         {currentUser ? (
           <>
@@ -44,28 +52,36 @@ export default function Header({ currentUser, currentView, onViewChange, onLogou
               className={`${styles.navBtn} ${styles.btnYellow} ${currentView === 'feed' ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('feed')}
             >
-              feed
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                📰<span className={styles.btnText}>feed</span>
+              </span>
             </button>
             <button
               type="button"
               className={`${styles.navBtn} ${styles.btnBlue} ${(currentView === 'groups' || currentView === 'group-detail') ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('groups')}
             >
-              groups
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                👥<span className={styles.btnText}>groups</span>
+              </span>
             </button>
             <button
               type="button"
               className={`${styles.navBtn} ${styles.btnGreen} ${currentView === 'study-void' ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('study-void')}
             >
-              private space
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                🔒<span className={styles.btnText}>private space</span>
+              </span>
             </button>
             <button
               type="button"
               className={`${styles.navBtn} ${styles.btnPink} ${currentView === 'portal' ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('portal')}
             >
-              portal
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                🌀<span className={styles.btnText}>portal</span>
+              </span>
             </button>
             <div className={`${styles.userBadge} ${styles.btnWhite}`} style={{ display: 'flex', alignItems: 'center', gap: '6.5px', padding: '6px 14px' }}>
               {typeof window !== 'undefined' && (() => {
@@ -85,7 +101,9 @@ export default function Header({ currentUser, currentView, onViewChange, onLogou
               className={`${styles.navBtn} ${styles.btnWhite}`}
               onClick={onLogout}
             >
-              logout
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                🚪<span className={styles.btnText}>logout</span>
+              </span>
             </button>
           </>
         ) : (
@@ -95,14 +113,18 @@ export default function Header({ currentUser, currentView, onViewChange, onLogou
               className={`${styles.navBtn} ${styles.btnWhite} ${currentView === 'login' ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('login')}
             >
-              login
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                🔑<span className={styles.btnText}>login</span>
+              </span>
             </button>
             <button
               type="button"
               className={`${styles.navBtn} ${styles.btnPink} ${currentView === 'register' ? styles.activeBtn : ''}`}
               onClick={() => onViewChange('register')}
             >
-              sign up
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4.5px' }}>
+                📝<span className={styles.btnText}>sign up</span>
+              </span>
             </button>
           </>
         )}

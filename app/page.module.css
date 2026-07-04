@@ -1335,7 +1335,7 @@
   color: #777777;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .widgetsLayout {
     flex-direction: column;
     gap: 16px;
