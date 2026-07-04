@@ -1,0 +1,97 @@
+.timerCard {
+  background: var(--brutal-cream) !important;
+  border: 3.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 20px;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.timerActive {
+  background: rgba(187, 247, 208, 0.85) !important;
+  box-shadow: 6px 6px 0px #000000 !important;
+}
+
+.timerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timerTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pulseDot {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #ef4444;
+  animation: pulseDotAnim 1s infinite alternate;
+}
+
+.timerClock {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-align: center;
+  font-family: monospace;
+  background: var(--brutal-white);
+  border: 2px solid #000000;
+  border-radius: var(--radius-md);
+  padding: 8px 0;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.timerControls {
+  display: flex;
+  gap: 10px;
+}
+
+.timerBtn {
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 8px 12px;
+  flex: 1;
+  border-width: 2.5px !important;
+}
+
+.startBtn {
+  background: var(--brutal-green);
+}
+
+.pauseBtn {
+  background: var(--brutal-yellow);
+}
+
+.resetBtn {
+  background: var(--brutal-white);
+  flex-shrink: 0;
+  max-width: 80px;
+}
+
+.timerStats {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555555;
+  text-align: center;
+  border-top: 1.5px solid #000000;
+  padding-top: 10px;
+}
+
+@keyframes pulseDotAnim {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .timerCard {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,111 @@
+.carouselCard {
+  background: var(--brutal-white) !important;
+  border: 3.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 16px 20px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+}
+
+.carouselTitle {
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navBtn {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border: 1.5px solid #000000;
+  background: var(--brutal-white);
+  cursor: pointer;
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.navBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.slideCounter {
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-family: monospace;
+}
+
+.slideContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border: 1.5px solid #000000;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badgeYellow { background: var(--brutal-yellow); }
+.badgeGreen { background: var(--brutal-green); }
+.badgePink { background: var(--brutal-pink); }
+
+.dateLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #666666;
+}
+
+.spotTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 4px 0 0 0;
+  line-height: 1.25;
+}
+
+.spotDesc {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #333333;
+  margin: 0;
+}
+
+.visitBtn {
+  align-self: flex-start;
+  font-size: 0.75rem !important;
+  padding: 4px 12px !important;
+  font-weight: 800 !important;
+  background: var(--brutal-white) !important;
+  border-width: 1.5px !important;
+  margin-top: 4px;
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+}

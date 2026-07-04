@@ -1,0 +1,208 @@
+.editorCard {
+  background: var(--brutal-white) !important;
+  border: 3.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #555555;
+  margin: 0 0 8px 0;
+}
+
+.editorLayout {
+  display: flex;
+  gap: 24px;
+}
+
+.previewSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 160px;
+}
+
+.avatarPreview {
+  width: 130px;
+  height: 130px;
+  border: 3.5px solid #000000;
+  border-radius: var(--radius-md);
+  box-shadow: 4px 4px 0px #000000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.previewSticker {
+  font-size: 4rem;
+}
+
+.previewBadge {
+  position: absolute;
+  bottom: -10px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 10px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.controlsSection {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #111;
+  border-left: 3px solid #000;
+  padding-left: 6px;
+}
+
+.bgGrid {
+  display: flex;
+  gap: 8px;
+}
+
+.bgDot {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.bgDot:hover {
+  transform: scale(1.15);
+}
+
+.activeBgDot {
+  border-width: 4.5px !important;
+}
+
+.dot_pink { background: #ff6b8b; }
+.dot_yellow { background: #ffde4d; }
+.dot_green { background: #a3e635; }
+.dot_blue { background: #60a5fa; }
+.dot_orange { background: #ff5b37; }
+.dot_cream { background: #faf7f2; }
+
+.stickerGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  background: var(--brutal-cream);
+  border: 1.5px solid #000;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.stickerBtn {
+  font-size: 1.4rem;
+  background: transparent;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+}
+
+.stickerBtn:hover {
+  background: var(--brutal-white);
+  border-color: #000000;
+}
+
+.activeSticker {
+  background: var(--brutal-white) !important;
+  border-color: #000000 !important;
+  box-shadow: 1px 1px 0px #000;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badgeSelectBtn {
+  font-size: 0.72rem !important;
+  padding: 2px 8px !important;
+  font-weight: 800 !important;
+  background: var(--brutal-white) !important;
+  border-width: 1.5px !important;
+}
+
+.activeBadgeSelect {
+  background: var(--brutal-yellow) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+.customBadgeInput {
+  font-size: 0.78rem !important;
+  padding: 4px 8px !important;
+  border-width: 1.5px !important;
+}
+
+.actionRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  border-top: 1.5px solid #000000;
+  padding-top: 12px;
+}
+
+.saveStatus {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.saveBtn {
+  font-size: 0.75rem !important;
+  padding: 4px 14px !important;
+  font-weight: 800 !important;
+  background: var(--brutal-green) !important;
+  border-width: 2px !important;
+}
+
+@media (max-width: 768px) {
+  .editorLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+}

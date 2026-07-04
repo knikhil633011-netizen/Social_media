@@ -1,0 +1,198 @@
+.boardCard {
+  background: var(--brutal-white) !important;
+  border: 3.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.boardTitle {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.addForm {
+  background: var(--brutal-cream);
+  border: 2px solid #000000;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+}
+
+.taskInput {
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-width: 2px !important;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colorPicker {
+  display: flex;
+  gap: 8px;
+}
+
+.colorDot {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.colorDot:hover {
+  transform: scale(1.15);
+}
+
+.activeColor {
+  border-width: 3px !important;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.color_yellow { background: var(--brutal-yellow); }
+.color_pink { background: var(--brutal-pink); }
+.color_green { background: var(--brutal-green); }
+.color_blue { background: var(--brutal-blue); }
+
+.submitBtn {
+  font-size: 0.78rem !important;
+  padding: 4px 12px !important;
+  font-weight: 800 !important;
+  border-width: 2px !important;
+}
+
+.boardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.column {
+  background: var(--brutal-cream) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  padding: 12px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 280px;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+}
+
+.columnHeader h4 {
+  font-size: 0.85rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.columnCount {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: #000000;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.taskCard {
+  border: 2px solid #000000;
+  padding: 10px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.cardPink { background: var(--brutal-pink); }
+.cardYellow { background: var(--brutal-yellow); }
+.cardGreen { background: var(--brutal-green); }
+.cardBlue { background: var(--brutal-blue); }
+
+.taskText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.taskActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.moveButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.moveBtn {
+  font-size: 0.65rem;
+  padding: 1px 4px;
+  border: 1px solid #000000;
+  background: var(--brutal-white);
+  cursor: pointer;
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.moveBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.deleteBtn {
+  font-size: 0.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.deleteBtn:hover {
+  transform: scale(1.2);
+}
+
+.emptyColumn {
+  margin: auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #888888;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .boardGrid {
+    grid-template-columns: 1fr;
+  }
+}

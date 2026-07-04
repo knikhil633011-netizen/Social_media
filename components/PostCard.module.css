@@ -1,0 +1,784 @@
+.card {
+  position: relative;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+/* Neo-brutalist dynamic backgrounds with premium glassmorphism overlay */
+.cardPink {
+  background: rgba(253, 224, 241, 0.82) !important;
+}
+.cardYellow {
+  background: rgba(254, 240, 138, 0.82) !important;
+}
+.cardGreen {
+  background: rgba(187, 247, 208, 0.82) !important;
+}
+.cardCream {
+  background: rgba(247, 245, 237, 0.82) !important;
+}
+
+/* Floating particle physics */
+.particleContainer {
+  position: absolute;
+  bottom: 60px;
+  left: 20%;
+  width: 60%;
+  height: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 20;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130px) scale(1.8) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.floatingParticle {
+  position: absolute;
+  left: 50%;
+  font-size: 2.5rem;
+  pointer-events: none;
+  animation: floatUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  filter: drop-shadow(2px 2px 0px #000000);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aliasBadge {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 2px 2px 0px #000000;
+  letter-spacing: -0.01em;
+}
+
+.time {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Content */
+.content {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #000000;
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: -0.02em;
+}
+
+/* Footer Actions */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #000000;
+  padding-top: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.reactionsSection {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reactionPill {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 2px 2px 0px #000000;
+  transition: all 0.1s ease;
+}
+
+.reactionPill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.reactionPill:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.userReacted {
+  background: var(--brutal-green);
+}
+
+.reactionCount {
+  font-weight: 800;
+}
+
+/* Plus reaction trigger */
+.pickerWrapper {
+  position: relative;
+}
+
+.addReactBtn {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #000000;
+  transition: all 0.1s ease;
+}
+
+.addReactBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.addReactBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.pickerPanel {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0px #000000;
+  z-index: 50;
+  animation: fadeIn 0.15s ease;
+}
+
+.pickerEmoji {
+  font-size: 1.3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: transform 0.1s ease;
+}
+
+.pickerEmoji:hover {
+  transform: scale(1.3);
+}
+
+/* Comment toggle button */
+/* Comment toggle button */
+.commentToggleBtn {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  color: #000000;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 4px 12px;
+  box-shadow: 2.2px 2.2px 0px #000000;
+  transition: all 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.commentToggleBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.2px 3.2px 0px #000000;
+}
+
+.commentToggleBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1.2px 1.2px 0px #000000;
+}
+
+.activeToggle {
+  background: var(--brutal-yellow) !important;
+}
+
+/* Comments Section */
+.commentsSection {
+  border-top: 2px solid #000000;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.25s ease;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.commentItem {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #000000;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentAuthor {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+.commentTime {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.commentContent {
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.noComments {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 12px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Comment Form */
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.commentInput {
+  flex-grow: 1;
+  background: var(--brutal-cream);
+  border: 2px solid #000000;
+  border-radius: var(--radius-sm);
+  color: #000000;
+  padding: 10px 14px;
+  font-size: 1.15rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.commentInput:hover {
+  background: #ffffff;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.keyboardContainer {
+  margin-top: 4px;
+}
+
+.replyBtn {
+  border-radius: var(--radius-sm) !important;
+}
+
+.errorMsg {
+  background: rgba(255, 91, 55, 0.08);
+  border: 2.5px solid var(--brutal-orange);
+  color: var(--brutal-orange);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease;
+}
+
+.composerWrapper {
+  border-top: 2px solid #000000;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.headerRight, .commentHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deletePostBtn, .deleteCommentBtn {
+  background: #ffffff;
+  border: 1.5px solid #000000;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  transition: all 0.1s ease;
+}
+
+.deletePostBtn:hover, .deleteCommentBtn:hover {
+  background: var(--brutal-orange);
+  color: #ffffff;
+  transform: translate(-0.5px, -0.5px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.deletePostBtn:active, .deleteCommentBtn:active {
+  transform: translate(0.5px, 0.5px);
+  box-shadow: 0.5px 0.5px 0px #000000;
+}
+
+.deleteCommentBtn {
+  width: 22px;
+  height: 22px;
+  font-size: 0.7rem;
+}
+
+/* Attachments rendering */
+.postAttachment {
+  margin: 14px 0 8px 0;
+  border: 2.5px solid #000000;
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 3px 0px #000000;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 100%;
+  background: #ffffff;
+}
+
+.commentAttachment {
+  margin: 8px 0 4px 0;
+  border: 1.5px solid #000000;
+  border-radius: 4px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 100%;
+  background: #ffffff;
+}
+
+.attachmentImg {
+  max-width: 100%;
+  max-height: 260px;
+  display: block;
+  object-fit: contain;
+}
+
+.commentAttachment .attachmentImg {
+  max-height: 120px;
+}
+
+.downloadDocBtn {
+  background: var(--brutal-yellow) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.1s ease !important;
+}
+
+.downloadDocBtn:hover {
+  background: var(--brutal-green) !important;
+}
+
+/* Comment Form attachment selectors */
+.commentAttachBtn {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 1.5px 1.5px 0px #000000 !important;
+  cursor: pointer !important;
+  width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.95rem !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.commentAttachBtn:hover {
+  background: var(--brutal-yellow) !important;
+  transform: translate(-0.5px, -0.5px);
+  box-shadow: 2px 2px 0px #000000 !important;
+}
+
+.commentAttachPreview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #000000;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  padding: 6px 12px;
+  margin-bottom: 8px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+}
+
+.previewName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #222222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+.commentRemoveAttachBtn {
+  background: var(--brutal-orange);
+  color: #ffffff;
+  border: 1.5px solid #000000;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0;
+  margin: 0;
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.restrictedDocCard {
+  background: #f1f0eb;
+  color: #555555;
+  border: 1.5px dashed #000000;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+/* Dynamic Vibe Auras */
+
+.vibeChill {
+  background: linear-gradient(-45deg, rgba(167, 139, 250, 0.82), rgba(192, 132, 252, 0.82), rgba(99, 102, 241, 0.82), rgba(129, 140, 248, 0.82)) !important;
+  background-size: 400% 400% !important;
+  animation: cosmicAura 10s ease infinite !important;
+  box-shadow: 6px 6px 0px #6d28d9 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.vibeChill span, .vibeChill button {
+  color: #ffffff !important;
+}
+
+.vibeChaotic {
+  border-color: #22c55e !important;
+  border-width: 3.5px !important;
+  box-shadow: 4px 4px 0px #000000, 0 0 10px rgba(34, 197, 94, 0.5) !important;
+  animation: flickerChaotic 3s infinite alternate !important;
+}
+
+.vibeWholesome {
+  background: linear-gradient(135deg, rgba(254, 215, 170, 0.82) 0%, rgba(251, 207, 232, 0.82) 100%) !important;
+  box-shadow: 3.5px 3.5px 0px #ec4899 !important;
+}
+
+.vibeRant {
+  background: rgba(254, 242, 242, 0.82) !important;
+  border-color: #ef4444 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  animation: pulseRantShadow 1.5s infinite ease-in-out !important;
+}
+
+@keyframes cosmicAura {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes flickerChaotic {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    box-shadow: 4px 4px 0px #000000, 0 0 12px #22c55e;
+  }
+  20%, 24%, 55% {
+    box-shadow: 4px 4px 0px #000000, 0 0 2px rgba(34, 197, 94, 0.2);
+  }
+}
+
+@keyframes pulseRantShadow {
+  0% {
+    box-shadow: 3.5px 3.5px 0px #ef4444;
+  }
+  50% {
+    box-shadow: 5.5px 5.5px 12px #dc2626;
+  }
+  100% {
+    box-shadow: 3.5px 3.5px 0px #ef4444;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 16px;
+    gap: 12px;
+  }
+  .content {
+    font-size: 1.1rem;
+  }
+  .commentContent {
+    font-size: 0.95rem;
+  }
+  .commentInput {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+  .reactionPill {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+  .addReactBtn {
+    padding: 3px 10px;
+    font-size: 0.75rem;
+  }
+  .aliasBadge {
+    padding: 2px 8px;
+    font-size: 0.75rem;
+  }
+  .time {
+    font-size: 0.75rem;
+  }
+  .floatingParticle {
+    font-size: 1.8rem;
+  }
+  .footer {
+    padding-top: 12px;
+    gap: 8px;
+  }
+  .deletePostBtn, .deleteCommentBtn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+  .attachmentImg {
+    max-height: 200px;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: modalFadeIn 0.2s ease;
+}
+
+.modalCard {
+  width: 90%;
+  max-width: 440px;
+  background: var(--brutal-white) !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 6px 6px 0px #000000 !important;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: modalScaleUp 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 12px;
+}
+
+.modalHeader h3 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.modalCloseBtn {
+  background: #ffffff;
+  border: 2px solid #000000;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+}
+
+.modalCloseBtn:hover {
+  background: var(--brutal-orange);
+  color: #ffffff;
+}
+
+.modalBody {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.canvasContainer {
+  background: var(--brutal-cream);
+  border: 2px solid #000000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 2px 2px 0px #000000;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.modalInfo h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: var(--brutal-yellow);
+  border: 1.5px solid #000000;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  align-self: flex-start;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  margin: 0;
+}
+
+.modalDesc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from { transform: scale(0.9) translateY(20px); }
+  to { transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .modalBody {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+  }
+  .modalInfo h4 {
+    align-self: center;
+  }
+}
+
+.secretBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--brutal-white);
+  background: #000000;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-top: 8px;
+}

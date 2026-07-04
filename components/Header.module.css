@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--background);
+  border-bottom: 3px solid #000000;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 1.65rem;
+  user-select: none;
+}
+
+.logoEcho {
+  color: #000000;
+  letter-spacing: -0.06em;
+}
+
+.logoRoom {
+  background: var(--brutal-pink);
+  color: #000000;
+  border: 2.5px solid #000000;
+  border-radius: 12px;
+  padding: 0px 8px;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  box-shadow: 2.5px 2.5px 0px #000000;
+  margin-left: 6px;
+  font-weight: 800;
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navBtn {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0px #000000;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0px #000000;
+}
+
+.navBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1.5px 1.5px 0px #000000;
+}
+
+.userBadge {
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  box-shadow: 2.5px 2.5px 0px #000000;
+  user-select: none;
+}
+
+/* Colors styling */
+.btnPink {
+  background: var(--brutal-pink);
+}
+.btnYellow {
+  background: var(--brutal-yellow);
+}
+.btnGreen {
+  background: var(--brutal-green);
+}
+.btnBlue {
+  background: var(--brutal-blue);
+}
+.btnWhite {
+  background: var(--brutal-white);
+}
+
+.btnMuted {
+  background: var(--brutal-white);
+  opacity: 0.75;
+}
+
+.btnSound {
+  background: var(--brutal-yellow);
+  animation: pulseSound 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseSound {
+  from { box-shadow: 2px 2px 0px #000000; }
+  to { box-shadow: 3.5px 3.5px 0px #000000; }
+}
+
+.activeBtn {
+  box-shadow: 1.5px 1.5px 0px #000000 !important;
+  transform: translate(1px, 1px) !important;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 12px;
+  }
+  .branding {
+    font-size: 1.3rem;
+  }
+  .logoRoom {
+    font-size: 0.9rem;
+    padding: 0px 4px;
+    margin-left: 3px;
+  }
+  .navControls {
+    gap: 6px;
+  }
+  .navBtn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+  .userBadge {
+    display: none; /* Hide private user badge on mobile to prevent navbar button wrapping */
+  }
+}

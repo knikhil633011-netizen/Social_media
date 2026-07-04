@@ -1,0 +1,288 @@
+.flashcardsCard {
+  background: var(--brutal-white) !important;
+  border: 3.5px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2.5px solid #000000;
+  padding-bottom: 12px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #555555;
+  margin: 0 0 6px 0;
+}
+
+.backBtn {
+  font-size: 0.72rem !important;
+  padding: 4px 10px !important;
+  font-weight: 800 !important;
+  background: var(--brutal-white) !important;
+  border-width: 1.5px !important;
+}
+
+.createDeckForm {
+  background: var(--brutal-cream);
+  border: 2px solid #000000;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  display: flex;
+  gap: 8px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+  margin-bottom: 16px;
+}
+
+.createDeckForm input {
+  flex: 1;
+  font-size: 0.8rem !important;
+  border-width: 1.5px !important;
+  padding: 4px 8px !important;
+}
+
+.createDeckForm button {
+  font-size: 0.75rem !important;
+  padding: 4px 12px !important;
+  border-width: 1.5px !important;
+  background: var(--brutal-yellow) !important;
+}
+
+.decksGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.deckCard {
+  background: var(--brutal-white) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  padding: 14px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.deckCard:hover {
+  background: var(--brutal-cream) !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000 !important;
+}
+
+.deckInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deckName {
+  font-size: 0.9rem;
+  font-weight: 900;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.deckCount {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #666666;
+}
+
+.deleteDeckBtn {
+  font-size: 0.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: transform 0.1s ease;
+}
+
+.deleteDeckBtn:hover {
+  transform: scale(1.25);
+}
+
+.activeDeckTitle {
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin: 0 0 16px 0;
+}
+
+/* CSS 3D Card flips */
+.cardContainer {
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+  margin-bottom: 16px;
+}
+
+.card3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.cardFlipped {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 3.5px solid #000000;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.cardFront {
+  background: var(--brutal-yellow);
+  color: #000000;
+}
+
+.cardBack {
+  background: var(--brutal-pink);
+  color: #000000;
+  transform: rotateY(180deg);
+}
+
+.faceLabel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: #000000;
+  color: #ffffff;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.cardText {
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.flipHint {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgba(0,0,0,0.5);
+}
+
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 16px;
+}
+
+.sessionProgress {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #444444;
+}
+
+.rateButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.incorrectBtn {
+  font-size: 0.75rem !important;
+  padding: 4px 12px !important;
+  font-weight: 800 !important;
+  background: #f87171 !important;
+  border-width: 2px !important;
+}
+
+.correctBtn {
+  font-size: 0.75rem !important;
+  padding: 4px 12px !important;
+  font-weight: 800 !important;
+  background: var(--brutal-green) !important;
+  border-width: 2px !important;
+}
+
+.addCardForm {
+  background: var(--brutal-cream);
+  border: 2px solid #000000;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 1.5px 1.5px 0px #000000;
+}
+
+.formSectionTitle {
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.addCardForm input {
+  font-size: 0.8rem !important;
+  border-width: 1.5px !important;
+  padding: 4px 8px !important;
+}
+
+.addCardForm button {
+  font-size: 0.75rem !important;
+  padding: 4px 12px !important;
+  border-width: 1.5px !important;
+  align-self: flex-end;
+  background: var(--brutal-yellow) !important;
+}
+
+.emptyDeck {
+  text-align: center;
+  padding: 24px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .decksGrid {
+    grid-template-columns: 1fr;
+  }
+}
